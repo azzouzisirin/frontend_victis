@@ -27,11 +27,15 @@ import ListFormation from './pages/ListFormation';
 import Formation from './pages/Formation';
 import PromoVictis from './pages/PromoVictis'
 import Services from './pages/Services'
+import { CookieConsent,useCookies } from 'react-cookie';
 import TableCalendrie from './pages/Calendrie/TableCalendrie';
 import DescriptDetailFormation from './pages/DescriptDetailFormation';
 import Authentification from './pages/Authentification'
 export default function App() {
-  return (
+  const accpt=localStorage.getItem("accpt");
+
+  return (  
+    <> 
     <Router>
   
 
@@ -61,6 +65,9 @@ export default function App() {
 
         </Routes>
     </Router>
+ {accpt?null:<Exp />}
+  </>
+
   );
 }
 
