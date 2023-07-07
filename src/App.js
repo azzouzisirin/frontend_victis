@@ -17,12 +17,17 @@ import Categorie from './pages/Categorie'
 import Exp from './pages/Exp'
 import Soutien from './pages/Soutien'
 import Contact from './pages/Contact'
+import MentionsLegales from './pages/mentionsLegale'
+
 import DescriptFormation from './pages/DescriptFormation'
 import DescriptModule from './pages/DescriptModule'
 import Article_1 from './pages/articles/Article_1';
 import Article_2 from './pages/articles/Article_2';
 import Article_3 from './pages/articles/Article_3';
 import Dashbord from './pages/Dashbord/Dashbord'
+import Financer from './pages/financer'
+import PolitiqueConfidentialite from './pages/politiqueConfidentialite'
+
 import ListFormation from './pages/ListFormation';
 import Formation from './pages/Formation';
 import PromoVictis from './pages/PromoVictis'
@@ -30,7 +35,8 @@ import Services from './pages/Services'
 import { CookieConsent,useCookies } from 'react-cookie';
 import TableCalendrie from './pages/Calendrie/TableCalendrie';
 import DescriptDetailFormation from './pages/DescriptDetailFormation';
-import Authentification from './pages/Authentification'
+import Authentification from './pages/Authentification';
+
 export default function App() {
   const accpt=localStorage.getItem("accpt");
 
@@ -50,6 +56,8 @@ export default function App() {
           <Route path="/article_1" element={<Article_1 />} />
           <Route path="/article_2" element={<Article_2 />} />
           <Route path="/article_3" element={<Article_3 />} />
+          <Route path="/mentionsLegales" element={<MentionsLegales />} />
+
           <Route path="/connect" element={<Authentification />} />
           <Route path="/dashbord" element={<Dashbord />} />
           <Route path="/tableCalendrie" element={<TableCalendrie />} />
@@ -60,6 +68,8 @@ export default function App() {
           <Route path="/PromoVictis" element={<PromoVictis />} />
           <Route path="/service" element={<Services />} />
           <Route path="/formation" element={<Formation />} />
+          <Route path="/financer" element={<Financer />} />
+          <Route path="/politiqueConfidentialite" element={<PolitiqueConfidentialite />} />
 
           <Route path="/DescriptModule/:id" element={<DescriptModule />} />
 
