@@ -1,59 +1,283 @@
 import React, { useEffect, useState } from "react";
-import posthog from 'posthog-js' // new
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-function Exp(props){ 
-    const { setCookie ,cookies} = props;
-useEffect(()=>{
-console.log(cookies)
-},[cookies])
-    const acceptCookies = () => { 
-        posthog.opt_in_capturing(); // new
-      };
+import axios from "axios";
+import {BASE_URL} from "../helper"
+import NavBar from '../components/Navbar';
+import Footer from '../components/Footer';
+import ContuctUs from '../components/ContuctUs';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+
+export default function TransitionsModal() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [MoisDate, setMoisDate] = useState([]);
+  const [data, setData] = useState([]);
+  const [nomFormation, setnomFormation] = useState([]);
+  const [datedebut, setdatedebut] = useState([]);
+  const [idmodule, setidmodule] = useState([]);
+  const [prix, setprix] = useState();
+
+  const [openPopupModule, setopenPopupModule] = useState(false)
+  const [categ, setcateg] = useState(null)
+  const [id, setid] = useState(null)
+  const [index, setindex] = useState(0)
+
+  const month = ["Janv.","Févr.","Mars","Avr.","Mai","Juin","Juil.","Août","Sept.","Oct.","Nov.","Déc."];
+  useEffect(()=>{
+      var dateActuelle = new Date();
+      var dateActuelle = new Date();
+      var dateDans4Mois =""
+      var x=[]
+      for(var i=0; i<6;i++){
+           dateDans4Mois = new Date(dateActuelle.getFullYear(), dateActuelle.getMonth() + i, dateActuelle.getDate());
+           x[i] = dateDans4Mois.getMonth();
+         
+
+      }
+      setMoisDate(x);
+
+
+  },[])
+  const [checked, setChecked] = useState(false); 
+  const [affich, setaffich] = useState(false); 
+
+  const [membre, setmembre] = useState({
+    nom: "",
+    telephne: "",
+    email: "",
+    information: "",
+    session:""
+
+  }); 
+
+  const [module, setmodule] = useState({});
+
+
+  const ajoutrInscript = async (e) => {
+    e.preventDefault();
+    if(checked==true){
+      try{
+        const config = {
+          headers: { 
+            "Content-type": "application/json",
+          },
+        };
+        const res = await axios.put(BASE_URL+"/sessionFormation/"+id, {
+          membres:membre
+
+          
+          
+          ,
+       
+        } ,
+      
+      config
+    );
+    setopenPopupModule(false)
+    window.location.reload(false);
+
+
+      }catch(err){
+        console.log(err);
+      }
+    }
+    else{
+      setaffich(true)
+    }
     
-      const declineCookies = () => {
-        posthog.opt_out_capturing(); // new
-      };
+    
+  
+    }
+    const handleChange = () => { 
+  
+      setChecked(!checked); 
+    }; 
 
-    return(
-       <div style={{ transition: "left 0.5s ease 0s"}}>
-       <div class="info-banner-blocker" style={{position:"fixed",padding:"0",margin:"0",zIndex:"900",top:"0",left:"0",width: "100%",height: "100%",background:"rgba(0,0,0,0.8)"}}>
+  useEffect(() => {
+ 
+    const fetchData = async () => { 
+      const res = await axios.get(`${BASE_URL}/sessionFormation/getAllSession`);
+      setData(res.data);
+   
+    }; 
+     fetchData();
+  }, []);
 
-       </div>
-       <section class="info-banner" style={{display: "visible"}}>
-        <div class="cb__blocker">
+  function DeterminValeur({id,index, s,d,nomFormation,prix,categ,module,datedebut,idmodule}){
+    setnomFormation(nomFormation)
+    setmodule(module)
+    
 
-       </div>
-       <section class="cb cb__TO">
-         <input class="cb--hidden" type="checkbox" id="showInfoCheckboxes"/> 
-         <div class="cb__main"> 
-       <div class="cb__content"> <h4 class="cb__title">Nous utilisons des cookies</h4> 
-       <div class="cb--desktop"> <p class="cb__intro">sur VICTIS.fr nous utilisons des cookies pour vous garantir la meilleur navigation possible, vous proposer les offres et services et réaliser des statistiques de visite pour améliorer votre expérience sur le site.<a href="https://www.transavia.com/fr-FR/juridique/politique-sur-les-cookies/">En savoir plus</a> </p>
-       </div>
-       <label for="showInfoCheckboxes" class="cb__mobile"> 
-       <div class="cb-mobile-text"> <p class="cb__intro cb--mobile">sur VICTIS.fr nous utilisons des cookies pour vous garantir la meilleur navigation possible, vous proposer les offres et services et réaliser des statistiques de visite pour améliorer votre expérience sur le site.<a href="https://www.transavia.com/fr-FR/juridique/politique-sur-les-cookies/">En savoir plus</a> </p>
-       </div>
-       </label>
-        <ul class="cb__preference-sections"> <li class="cb__preference-section">
-             <input type="checkbox" class="cb__checkbox" id="cb-check-a" checked="checked" disabled=""/> 
-             <label for="cb-check-a" class="cb__checkbox-title">Cookies basiques</label>
-              <input id="showBulletPoints-basics" class="cb__toggle-checkbox" type="checkbox"/> 
-       <label for="showBulletPoints-basics" class="cb__toggle cb--mobile cb__arrow"></label> <label for="cb-check-a" class="cb__preference-content"> <ul class="cb__preference-list"> <li class="cb__preference-item">Sont nécessaires pour le bon fonctionnement de notre site web;</li><li class="cb__preference-item">Enregistrent vos préférences, notamment votre langue et l’état de la connexion;</li><li class="cb__preference-item">Collectent des informations anonymes et agrégées lorsque vous visitez notre site web;</li>
-       <li class="cb__preference-item">Vous incluent à des tests A/B lorsque vous utilisez notre site web pour améliorer nos services et produits;</li></ul>
-        </label> 
-       </li><li class="cb__preference-section"> <input type="checkbox" id="cb-check-c" class="cb__checkbox"/> <label for="cb-check-c" class="cb__checkbox-title">Cookies analytiques</label> <input id="showBulletPoints-analytics" class="cb__toggle-checkbox" type="checkbox"/>
-        <label for="showBulletPoints-analytics" class="cb__toggle cb--mobile cb__arrow"></label> <label for="cb-check-c" class="cb__preference-content"> <ul class="cb__preference-list"> <li class="cb__preference-item">Nous offrent une compréhension plus approfondie de votre comportement en ligne en analysant vos actions sur notre site web;</li><li class="cb__preference-item">Créent et recueillent un identifiant spécifique Transavia que nous pouvons utiliser dans nos outils d’analyse web;</li><li class="cb__preference-item">Activent les outils qui permettent aux utilisateurs de nous donner leur avis.</li></ul> </label> 
-        </li><li class="cb__preference-section"> <input type="checkbox" id="cb-check-d" class="cb__checkbox"/> <label for="cb-check-d" class="cb__checkbox-title">Cookies marketing</label> <input id="showBulletPoints-marketing" class="cb__toggle-checkbox" type="checkbox"/> <label for="showBulletPoints-marketing" class="cb__toggle cb--mobile cb__arrow"></label>
-         <label class="cb__preference-content" for="cb-check-d"> <ul class="cb__preference-list"> <li class="cb__preference-item">Recueillent des informations lorsque vous visitez notre site web et les partagent avec nos vendeurs tiers;</li><li class="cb__preference-item">Affichent des publicités ou des offres pertinentes et personnalisées à la fois en ligne et hors ligne;</li><li class="cb__preference-item">Mesurent l’efficacité de nos campagnes publicitaires en suivant le nombre de clics;</li><li class="cb__preference-item">Ils s’assurent que vous ne voyez pas les mêmes publicités trop souvent;</li><li class="cb__preference-item">Vous permettent de partager du contenu sur des plateformes de réseaux sociaux telles que Facebook et Twitter. Bon à savoir : ces plateformes sont susceptibles d’utiliser ces cookies à leurs propres fins, y compris à des fins publicitaires;</li></ul> </label> 
-         </li>
-         </ul> 
-         </div>
-         <div class="cb__actions"> <div class="cb__buttons"> <button onclick="_stCookiePopup.send_popup_accept()" class="cb__button cb__button--save"> <span class="cb__button-background"></span> <span class="cb__button-text">Je valide</span> </button> <button data-testid="button-accept-all-cookies" onClick={()=> {localStorage.setItem('accpt',"true");window.location.reload(false)}} class="cb__button cb__button--accept-all"> <span class="cb__button-background"></span> <span class="cb__button-text">Tout accepter</span> </button>  <button data-testid="button-accept-no-cookies" onClick={()=> {localStorage.setItem('accpt',"false");window.location.reload(false)}} class="cb__button cb__button--accept-none"> <span class="cb__button-background"></span> <span class="cb__button-text">Continuer sans accepter</span> </button> 
-         </div></div>
-         </div>
-         </section>
+    setdatedebut(datedebut[index].datedebut)
+    setcateg(categ)
+    setidmodule(idmodule)
+    setprix(prix)
+    if(s.datedebut.substring(5,7)==  (Number(d)+1)){
+      return(<button style={{background:"rgb(40, 116, 252) ",width:"100%"}} onClick={()=>{setid(id);setmembre({ ...membre, session: index });setindex(index);setOpen(true)}}> {s.datedebut.substring(8,10)} - {s.datefin.substring(8,10)} </button>)
+  
+    }
+    else{
+      return(null)
+  
+    }
+  }
+      
+  return (
+    <div>
+    <NavBar/>
 
-         </section>
+<div className="divTablesite"> 
+   <table > 
+   <thead>
+    <tr >
+        <th style={{width:"40%"}}> Formations </th>
+        <th> Durée</th>
+        <th> Prix</th>
+    <th>  {month[MoisDate[0]]}</th> 
+    <th>   {month[MoisDate[1]]}</th> 
+    <th>   {month[MoisDate[2]]}</th> 
+    <th>   {month[MoisDate[3]]}</th> 
+    <th>   {month[MoisDate[4]]}</th> 
+    <th>   {month[MoisDate[5]]}</th> 
+
+ 
+    </tr>
+    </thead>
+    <tbody style={{textAlign:'center'}}>
+   
+    {data.map((p)  => (
+         <tr > 
+    <td style={{textAlign:'left',paddingLeft:'30px'}}>
+    Formation  {p.formation} {p.module}
+    </td>
+    <td>
+      {p.duree}
+    </td>
+    <td>
+      {p.prix}   
+    
+
+    </td>
+
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} nomFormation={p.formation} module={p.module} datedebut={p.Session} index={index} s= {p.Session[index]} d={MoisDate[0].toString().padStart(2, '0')}/> ))}
+    
+    </td>
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} index={index}  nomFormation={p.formation} module={p.module} datedebut={p.Session}   s= {p.Session[index]} d={MoisDate[1].toString().padStart(2, '0')}/> ))}
+    </td>
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} index={index} nomFormation={p.formation} module={p.module} datedebut={p.Session}  s= {p.Session[index]} d={MoisDate[2].toString().padStart(2, '0')}/> ))}
+    </td>
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} index={index} nomFormation={p.formation} module={p.module} datedebut={p.Session}  s= {p.Session[index]} d={MoisDate[3].toString().padStart(2, '0')}/> ))}
+    </td>
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} index={index} nomFormation={p.formation} module={p.module} datedebut={p.Session}   s= {p.Session[index]} d={MoisDate[4].toString().padStart(2, '0')}/> ))}
+    </td>
+    <td> 
+    {p.Session.map((m,index)  => (
+    <DeterminValeur id={p._id} prix={p.prix} categ={p.categorie} index={index} nomFormation={p.formation} module={p.module} datedebut={p.Session} s= {p.Session[index]} d={MoisDate[5].toString().padStart(2, '0')}/> ))}
+    </td>
+
+
+
+    </tr>
+    ))}
+
+
+
+
+      </tbody>
+   </table>
+   </div>
+<ContuctUs/>
+    <Footer/>
+
+    
+   
+   
+   
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+     
+
+      >
+        <Fade in={open}    style={{width:"650px"}}>
+          <Box sx={style}>
+          <div  >
+
+             
+<div style={{textAlign:"center",background:"black",color:"white"}}>
+<h4>PRÉ-INSCRIPTION À UNE FORMATION</h4>
+ </div>
+
+<br/>
+
+<div style={{marginLeft:"30px"}}>
+<p> <span style={{fontWeight:"bold",fontSize:"20px"}}>  Formation souhaitée : </span> 
+<br/> Formation {nomFormation} {module} : Les Fondamentaux (<a href={'/DescriptModule/'+categ +"/"+nomFormation+"/"+module } target='_blank' style={{color:"blue"}}>en savoir plus</a>) </p>
+<br/> 
+<p> <span style={{fontWeight:"bold",fontSize:"20px"}}>  Tarif : </span>  {prix } € </p>
+<br/> 
+<p> <span style={{fontWeight:"bold",fontSize:"20px"}}> Date(s) :</span>  {datedebut }</p>
+<br/> 
+<p><span style={{fontWeight:"bold",fontSize:"20px",marginBottom:"15px"}}>  Vos coordonnées : </span> </p>
+<br/> 
+<input type='text' style={{width:"570px",height:"30px",marginBottom:"15px"}} placeholder='Nom et prénom' required value={membre.nom} 
+               onChange={e => setmembre({ ...membre, nom: e.target.value })} /> <br/>
+<input type='text' style={{width:"570px",height:"30px",marginBottom:"15px"}} placeholder='Téléphone'  value={membre.telephne} required
+               onChange={e => setmembre({ ...membre, telephne: e.target.value })} /><br/>
+<input type='text' style={{width:"570px",height:"30px",marginBottom:"15px"}} placeholder='Email'  value={membre.email} required
+               onChange={e => setmembre({ ...membre, email: e.target.value })}/><br/>
+<textarea  style={{width:"570px",height:"90px",marginBottom:"15px"}} placeholder='Information complémentaire'  value={membre.information} required
+               onChange={e => setmembre({ ...membre, information: e.target.value })}/>
+<p> <span style={{fontWeight:"bold",fontSize:"20px"}}>  RGPD : </span> </p>
+<div style={{display:"flex"}}>
+
+<input type='checkbox' style={{marginRight:"15px"}} onChange={handleChange}/>
+<p style={{fontSize:"10px",marginTop:"10px"}}>En soumettant ce formulaire, j’accepte que les informations saisies  soient exploitées dans le cadre de la demande de <br/>  contact/devis et de la relation commerciale qui peut en découler. *</p>
 </div> 
-    )
+{affich==true? <p style={{color:'red'}}> Ce champ est obligatoire.</p>:null}
+</div> 
+<button style={{width:'80%',background:'black',color:"white",textAlign:"center",fontSize:"21px",margin:"20px 9%",borderRadius:"7px"}}onClick={e => ajoutrInscript(e)} > Envoye</button>
+</div>
+          </Box>
+        </Fade>
+      </Modal>
+    </div>
+  );
 }
-export default Exp;

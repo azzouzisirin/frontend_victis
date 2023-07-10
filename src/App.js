@@ -32,7 +32,7 @@ import ListFormation from './pages/ListFormation';
 import Formation from './pages/Formation';
 import PromoVictis from './pages/PromoVictis'
 import Services from './pages/Services'
-import { CookieConsent,useCookies } from 'react-cookie';
+import CookieConsent from './components/CookieConsent';
 import TableCalendrie from './pages/Calendrie/TableCalendrie';
 import DescriptDetailFormation from './pages/DescriptDetailFormation';
 import Authentification from './pages/Authentification';
@@ -52,7 +52,7 @@ export default function App() {
           <Route path="/exp" element={<Exp />} />
           <Route path="/soutien" element={<Soutien />} />
           <Route path="/contactUs" element={<Contact />} />
-          <Route path="/DescriptFormation/:id" element={<DescriptFormation />} />
+          <Route path="/DescriptFormation/:nomCateg/:nomFormation" element={<DescriptFormation />} />
           <Route path="/article_1" element={<Article_1 />} />
           <Route path="/article_2" element={<Article_2 />} />
           <Route path="/article_3" element={<Article_3 />} />
@@ -71,11 +71,11 @@ export default function App() {
           <Route path="/financer" element={<Financer />} />
           <Route path="/politiqueConfidentialite" element={<PolitiqueConfidentialite />} />
 
-          <Route path="/DescriptModule/:id" element={<DescriptModule />} />
+          <Route path="/DescriptModule/:nomCateg/:nomFormation/:nomModul" element={<DescriptModule />} />
 
         </Routes>
     </Router>
- {accpt?null:<Exp />}
+ {accpt?null:<CookieConsent />}
   </>
 
   );

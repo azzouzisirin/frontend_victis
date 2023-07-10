@@ -44,7 +44,7 @@ return (
 
 				<div className="pl-6 lg:pl-0 max-w-128 mx-auto">
 			
-			<img  style={{width:"150px",height:"100px",marginLeft:"27%"}} src='../../img/logo_victis.png'/>
+			<img  style={{width:"150px",height:"100px",marginLeft:"27%"}} src='../../../img/logo_victis.png'/>
 
 									<div className="flex lg:hidden"style={{marginLeft:"22%",marginTop:"20px"}}>
 									<a href="" target="" className="">
