@@ -60,7 +60,7 @@ export default function App() {
 
           <Route path="/connect" element={<Authentification />} />
           <Route path="/dashbord" element={<Dashbord />} />
-          <Route path="/tableCalendrie" element={<TableCalendrie />} />
+          <Route path="/calendrier-formations" element={<TableCalendrie />} />
 
           <Route path="/ListFormation/:nomCateg" element={<ListFormation />}  />
           <Route path="/descritionFormation/:nomForma/:pays" element={<DescriptDetailFormation />}  />

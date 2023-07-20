@@ -154,10 +154,10 @@ return (
 			</div>
 		<div><h5 className="pt-15 border-b-1p border-grey-2 w-full uppercase text-grey-3 text-o18 tracking-09 pb-2"> RECHERCHES POPULAIRES </h5>
 		<div>
-			<a href={"/DescriptFormation/"+idFormation_1} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_1}</a>
-		<a href={"/DescriptFormation/"+idFormation_2} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_2}</a>
-		<a href={"/DescriptFormation/"+idFormation_3} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_3}</a>
-		<a href={"/DescriptFormation/"+idFormation_3} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_3}</a>
+			<a href={"/DescriptFormation/"+idFormation_1+"/"+nomFormation_1} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_1}</a>
+		<a href={"/DescriptFormation/"+idFormation_2+"/"+nomFormation_2} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_2}</a>
+		<a href={"/DescriptFormation/"+idFormation_3+"/"+nomFormation_3} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_3}</a>
+		<a href={"/DescriptFormation/"+idFormation_3+"/"+nomFormation_4} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400"> Formation {nomFormation_3}</a>
 		</div>
 	
 		</div>
@@ -218,7 +218,7 @@ return (
 				
 									</div>
 									<div className="menu-item menu-item-L0 pl-2 grid:pl-8 menu-item-has-items inline-block h-full">
-				<a 	href="/tableCalendrie" className="h-full cursor-pointer inline-flex items-center text-light font-semibold text-link16">
+				<a 	href="/calendrier-formations" className="h-full cursor-pointer inline-flex items-center text-light font-semibold text-link16">
 				Calendrier 
 	
 	</a>
@@ -401,7 +401,7 @@ return (
 							<use href="#icon-prototyping"></use>
 						</svg>
 										3D Printing &amp; Manufacturing</a>
-							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
+							<a href="/service" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
 											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
 							<use href="#icon-plus"></use>
 						</svg>
@@ -714,7 +714,7 @@ return (
 							</div>
 							<div className=" flex h-20 bg-grey-5 sticky top-0 " style={{background:"#030b16"}} >
 								<button style={{fontSize:"18px",color:"white",flex:"2",    lineHeight: "1.5",fontWeight:"bold"}} >
-								<a href="/tableCalendrie">Calendrier   </a>
+								<a href="/calendrier-formations">Calendrier   </a>
 								</button>
 								<button style={{flex:"1",paddingLeft:"195px",visibility:"hidden"}} >
 								<svg className="pointer-events-none  h-full w-9 transform -rotate-90 text-blue-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -831,19 +831,19 @@ return (
 							</figure>
 						</button>
 						{clickFormation==true?			<nav className="border-b-2 mx-5 border-clear  overflow-hidden transition-max-h duration-500 ease-in-out" style={{marginLeft:"40px"}} >
-						<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_1} target="">
+						<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_1+"/"+nomFormation_1} target="">
 						Formations {nomFormation_1}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_2} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_2+"/"+nomFormation_2} target="">
 															Formations {nomFormation_2}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_3} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_3+"/"+nomFormation_3} target="">
 															Formations {nomFormation_3}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_4} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_4+"/"+nomFormation_4} target="">
 															Formations {nomFormation_4}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_5} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_5+"/"+nomFormation_5} target="">
 															Formations {nomFormation_5}
 								</a>
 								

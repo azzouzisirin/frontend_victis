@@ -67,12 +67,12 @@ export default function Home() {
 	<div className="w-270p mx-auto last:mr-0" >  
 
 <figure className="w-full h-270p relative group cursor-pointer bg-grey-1">
-	<a className="block w-full h-full" href={"/DescriptFormation/"+DataFormation[0]._id} target="_self">
+	<a className="block w-full h-full" href={"/DescriptFormation/"+categorie+"/"+DataFormation[0].nom} target="_self">
 		<img decoding="async" className="lozad w-full h-full object-contain p-4" src={DataFormation[0].photo} alt={DataFormation[0].photo}/>
 	</a>
 	
 </figure>
-<a className="block" href={"/DescriptFormation/"+DataFormation[0]._id} target="_self">
+<a className="block" href={"/DescriptFormation/"+categorie+"/"+DataFormation[0].nom} target="_self">
 	<p className="mt-5 text-o14 font-semibold tracking-07 text-grey-2 uppercase">Formation</p>
 	<p className="mt-2 text-p18">{DataFormation[0].nom}</p>
 
@@ -81,14 +81,14 @@ export default function Home() {
 <div className="w-270p mx-auto last:mr-0" >  
 
 			<figure className="w-full h-270p relative group cursor-pointer bg-grey-1">
-				<a className="block w-full h-full" href={"/DescriptFormation/"+DataFormation[1]._id} target="_self">
+				<a className="block w-full h-full" href={"/DescriptFormation/"+categorie+"/"+DataFormation[1].nom} target="_self">
 					<img decoding="async" className="lozad w-full h-full object-contain p-4" src={DataFormation[1].photo} alt={DataFormation[1].photo}/>
 				</a>
 				<div className="px-4 w-full absolute z-20 inset-x-0 bottom-4 ">
 					<button className="quickview-toggle hidden group-hover:block w-full py-4 bg-dark link-button18 tracking-16 font-semibold uppercase text-center hover:shadow-hover active:shadow-wider" data-product="5772">Aperçu rapide</button>
 				</div>
 			</figure>
-			<a className="block" href={"/DescriptFormation/"+DataFormation[1]._id} target="_self">
+			<a className="block" href={"/DescriptFormation/"+categorie+"/"+DataFormation[1].nom} target="_self">
 				<p className="mt-5 text-o14 font-semibold tracking-07 text-grey-2 uppercase">Formation</p>
 				<p className="mt-2 text-p18">{DataFormation[1].nom}</p>
 			
@@ -97,14 +97,14 @@ export default function Home() {
 			<div className="w-270p mx-auto last:mr-0" >  
 
 <figure className="w-full h-270p relative group cursor-pointer bg-grey-1">
-	<a className="block w-full h-full" href={"/DescriptFormation/"+DataFormation[2]._id} target="_self">
+	<a className="block w-full h-full" href={"/DescriptFormation/"+categorie+"/"+DataFormation[2].nom} target="_self">
 		<img decoding="async" className="lozad w-full h-full object-contain p-4" src={DataFormation[2].photo} alt={DataFormation[2].photo}/>
 	</a>
 	<div className="px-4 w-full absolute z-20 inset-x-0 bottom-4 ">
 		<button className="quickview-toggle hidden group-hover:block w-full py-4 bg-dark link-button18 tracking-16 font-semibold uppercase text-center hover:shadow-hover active:shadow-wider" data-product="5772">Aperçu rapide</button>
 	</div>
 </figure>
-<a className="block" href={"/DescriptFormation/"+DataFormation[2]._id} target="_self">
+<a className="block" href={"/DescriptFormation/"+categorie+"/"+DataFormation[2].nom} target="_self">
 	<p className="mt-5 text-o14 font-semibold tracking-07 text-grey-2 uppercase">Formation</p>
 	<p className="mt-2 text-p18">{DataFormation[2].nom}</p>
 
@@ -182,7 +182,7 @@ return (
 
 								
 								<div className="flex">
-											<a className="button-primary flex justify-center items-center px-2 md:px-5 text-button14 tracking-14 md:text-button18 md:tracking-18 mt-9" href="" target="">
+											<a className="button-primary flex justify-center items-center px-2 md:px-5 text-button14 tracking-14 md:text-button18 md:tracking-18 mt-9" href="/calendrier-formations" target="">
 											Notre calendrier des formations
 						</a>
 														</div>
@@ -229,12 +229,7 @@ return (
 							<p className="mt-3 md:mt-4 text-p16 md:text-p18 text-grey-2">Les organisations à vocation technique et d'ingénierie ont autant besoin d'excellents ingénieurs que d'excellents gestionnaires et opérateurs. Les techniques d'ingénierie continuent d'évoluer à un rythme important, il est donc impératif que les ingénieurs en exercice doivent être en mesure de mettre à jour continuellement leurs compétences pour maintenir leur organisation à la pointe des meilleures pratiques. </p>
 
 										
-																				<a href="/PromoVictis" className="button-link inline-flex items-center font-semibold text-blue-4 hover:text-blue-2 mt-6 md:mt-8 text-link16 md:text-link21" target="">Apprendre encore plus
-	<svg className="ml-2 h-6 w-6 stroke-current " fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
-		<path className="stroke-current" d="M2 12.5h20"  strokeWidth="2" strokeMiterlimit="10"></path>
-		<path className="stroke-current"  d="M15 5.5l7 7-7 7" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="square"></path>
-	</svg>
-</a>
+	
 									</div>
 	</div>
 </section>
@@ -618,7 +613,7 @@ return (
 			<p className="mt-6 text-o14 tracking-07 md:text-o18 md:tracking-09 font-semibold uppercase text-grey-2">SERVICES D'INGÉNIERIE</p>
 			<h3 className="mt-2 text-h3Sm md:text-h1Sm font-semibold">Services d'ingénierie et de conception à la demande</h3>
 							<p className="mt-3 md:mt-4 text-p16 md:text-p18 text-grey-2">De la conception et de l'analyse aux services de conseil d'experts, VICTIS offre un support de leadership en ingénierie à la demande et sur site.</p>
-																							<a href="" className="button-link inline-flex items-center font-semibold text-blue-4 hover:text-blue-2 mt-6 md:mt-8 text-link16 md:text-link21" target="">Apprendre encore plus
+																							<a href="/service" className="button-link inline-flex items-center font-semibold text-blue-4 hover:text-blue-2 mt-6 md:mt-8 text-link16 md:text-link21" target="">Apprendre encore plus
 	<svg className="ml-2 h-6 w-6 stroke-current " fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
 		<path className="stroke-current" d="M2 12.5h20" strokeWidth="2" strokeMiterlimit="10"/>
 		<path className="stroke-current" d="M15 5.5l7 7-7 7" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="square"/>
