@@ -134,7 +134,7 @@ return (
 			<use href="#icon-close"></use></svg></button>
 			<div className="flex"><div className="bg-grey-1 w-1/4 px-12 pt-10 pb-20">
 				<h5 className="o:-mt-2p pt-15 border-b-1p border-grey-2 w-full uppercase text-grey-3 text-o18 tracking-09 pb-2"> PARCOURIR LES CATÉGORIES </h5>
-			<div>
+			<div >
 				<a href={"/ListFormation/"+nomCateg_1} target="_self" className="block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">Formations {nomCateg_1}</a>
 		<a href={"/ListFormation/"+nomCateg_2} target="_self" className="block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">Formations {nomCateg_2}</a>
 		<a href={"/ListFormation/"+nomCateg_3} target="_self" className="block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">Formations {nomCateg_3}</a>
@@ -349,7 +349,7 @@ return (
 
 					Contactez-nous
 				</a>
-							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:8888746324" target="">
+							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:+33 (0)9 63 22 47 40" target="">
 							<img  className="icon  fill-none stroke-current text-blue-2 items-center mr-3" src="../../../img/tel.svg"width="50px"/>
 
 					+33 (0)9 63 22 47 40
@@ -394,11 +394,7 @@ return (
 							<use href="#icon-documentation"></use>
 						</svg>
 						Documentation</a>
-							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
-											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
-											Tout						<use href="#icon-info"></use>
-						</svg>
-						Électrique</a>
+					
 						
 							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
 											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
@@ -452,7 +448,7 @@ return (
 
 			Contactez-nous
 		</a>
-					<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:8888746324" target="">
+					<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:+33 (0)9 63 22 47 40" target="">
 					<img  className="icon  fill-none stroke-current text-blue-2 items-center mr-3" src="../../../img/tel.svg"width="50px"/>
 
 			+33 (0)9 63 22 47 40
@@ -518,7 +514,7 @@ return (
 
 					Contactez-nous
 				</a>
-							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:8888746324" target="">
+							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:+33 (0)9 63 22 47 40" target="">
 							<img  className="icon  fill-none stroke-current text-blue-2 items-center mr-3" src="../../../img/tel.svg"width="50px"/>
 
 					+33 (0)9 63 22 47 40
@@ -621,7 +617,7 @@ return (
  <section style={{background:"#030b16",width:"100%",height:'750px',position:"absolute"}}  onMouseLeave={() => setisShownMenu(0)} >
 	<div className="h-full relative max-w-grid mx-auto lg:px-4 grid:px-0 flex text-light">
 
-						<nav className="mega-menu-subnav pr-11 w-388p">
+						<nav className="mega-menu-subnav pr-11" style={{width:"1000px"}}>
 		<p className="text-o18 text-grey-3 tracking-09 uppercase font-semibold">À propos</p>
 		<ul>
 							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
@@ -682,7 +678,7 @@ return (
 
 					Contactez-nous
 				</a>
-							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:8888746324" target="">
+							<a className="mt-5 text-link21 font-semibold flex hover:text-blue-2 " href="tel:+33 (0)9 63 22 47 40" target="">
 							<img  className="icon  fill-none stroke-current text-blue-2 items-center mr-3" src="../../../img/tel.svg"width="50px"/>
 
 					+33 (0)9 63 22 47 40
@@ -698,7 +694,7 @@ return (
 	<nav className="navmenu" style={{width:"90%"}} >
 	{menuAffiche==0?	<div >
 		<div className=" flex h-20 bg-grey-5 sticky top-0 z-10 "  >
-		<img  width="80px" height="40px" style={{marginTop:"5px"}} src={logo_VICTIS} alt="logo"/>
+		<img  width="95px" height="40px" style={{marginTop:"5px"}} src={logo_VICTIS} alt="logo"/>
 
 								<button className="mobile-menu-close h-full self-start flex ml-auto" onClick={() =>setMenuOpen(false)}  >
 									<svg className="h-full w-16 text-blue-2 hover:bg-grey-4 mb-auto justify-center items-center flex p-4">
@@ -717,13 +713,17 @@ return (
 								</button>
 							</div>
 							<div className=" flex h-20 bg-grey-5 sticky top-0 " style={{background:"#030b16"}} >
-								<a style={{fontSize:"18px",color:"white",flex:"2",    lineHeight: "1.5",fontWeight:"bold"}} href="/tableCalendrie">
-								Calendrier 
-								</a>
-							
+								<button style={{fontSize:"18px",color:"white",flex:"2",    lineHeight: "1.5",fontWeight:"bold"}} >
+								<a href="/tableCalendrie">Calendrier   </a>
+								</button>
+								<button style={{flex:"1",paddingLeft:"195px",visibility:"hidden"}} >
+								<svg className="pointer-events-none  h-full w-9 transform -rotate-90 text-blue-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+							<path className="stroke-current" d="M10.666 6.667L8 9.333 5.333 6.667" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="square"></path>
+						</svg>
+								</button>
 							</div>
 							<div className=" flex h-20 bg-grey-5 sticky top-0 " style={{background:"#030b16"}} >
-								<button style={{fontSize:"18px",color:"white",flex:"2", marginLeft:'43px',   lineHeight: "1.5",fontWeight:"bold"}} onClick={() =>setmenuAffiche(2)}>
+								<button style={{fontSize:"18px",color:"white",flex:"2", marginLeft:'48px',   lineHeight: "1.5",fontWeight:"bold"}} onClick={() =>setmenuAffiche(2)}>
 								Prestations de service
 								</button>
 								<button style={{flex:"1",paddingLeft:"150px"}} onClick={() =>setmenuAffiche(2)} >
@@ -792,24 +792,25 @@ return (
 								<svg  className="transition transform ease-in-out duration-300 absolute inset-0 w-full h-full stroke-current text-blue-2" style={{marginLeft:"-60px"}}><use href="#icon-plus"/></svg>}
 							</figure>
 						</button>
-				{clickCateg==true?	<nav className="border-b-2 mx-5 border-clear  overflow-hidden transition-max-h duration-500 ease-in-out" >
-						<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/ListFormation/"+nomCateg_1} target="">
+				{clickCateg==true?	
+				<nav className="border-b-2 mx-5 border-clear  overflow-hidden transition-max-h duration-500 ease-in-out" style={{marginLeft:"40px"}} >
+						<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/ListFormation/"+nomCateg_1} target="">
 						Formations {nomCateg_1}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/ListFormation/"+nomCateg_2} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/ListFormation/"+nomCateg_2} target="">
 															Formations {nomCateg_2}
 								</a> 
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/ListFormation/"+nomCateg_3} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/ListFormation/"+nomCateg_3} target="">
 															Formations {nomCateg_3}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/ListFormation/"+nomCateg_4} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/ListFormation/"+nomCateg_4} target="">
 															Formations {nomCateg_4}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/ListFormation/"+nomCateg_5} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/ListFormation/"+nomCateg_5} target="">
 															Formations {nomCateg_5}
 								</a>
 								
-														<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2 group" href="/categorie" target="">
+														<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2 group" href="/categorie" target="">
 								Voir tout
 								<svg className="ml-2 h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
 									<path d="M2 12.5h20" stroke="#00B6FF" strokeWidth="2" strokeMiterlimit="10"/>
@@ -829,24 +830,24 @@ return (
 								<svg  className="transition transform ease-in-out duration-300 absolute inset-0 w-full h-full stroke-current text-blue-2" style={{marginLeft:"-60px"}}><use href="#icon-plus"/></svg>}
 							</figure>
 						</button>
-						{clickFormation==true?			<nav className="border-b-2 mx-5 border-clear  overflow-hidden transition-max-h duration-500 ease-in-out" >
-						<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_1} target="">
+						{clickFormation==true?			<nav className="border-b-2 mx-5 border-clear  overflow-hidden transition-max-h duration-500 ease-in-out" style={{marginLeft:"40px"}} >
+						<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_1} target="">
 						Formations {nomFormation_1}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_2} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_2} target="">
 															Formations {nomFormation_2}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_3} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_3} target="">
 															Formations {nomFormation_3}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_4} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_4} target="">
 															Formations {nomFormation_4}
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_5} target="">
+															<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2" href={"/DescriptFormation/"+idFormation_5} target="">
 															Formations {nomFormation_5}
 								</a>
 								
-														<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2 group" href="/categorie" target="">
+														<a className="menu-link  flex items-center px-6 h-10 hover:text-blue-2 group" href="/categorie" target="">
 								Voir tout
 								<svg className="ml-2 h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
 									<path d="M2 12.5h20" stroke="#00B6FF" strokeWidth="2" strokeMiterlimit="10"/>
@@ -857,13 +858,13 @@ return (
 					</div>
 									</li>
 			<li className="menu-item" style={{marginLeft:'20px'}}>
-																<a className="menu-link  flex items-center px-6 h-15 font-semibold hover:text-blue-2 ease-200" href="/product-category/hardware?product-promotion=new" target="">
+																<a className="menu-link  flex items-center px-6 h-15 font-semibold hover:text-blue-2 ease-200" href="" target="">
 						
 																Nouveau
 					</a>
 									</li>
 			<li className="menu-item" style={{marginLeft:'20px'}}>
-																<a className="menu-link  flex items-center px-6 h-15 font-semibold hover:text-blue-2 ease-200" href="/product-category/hardware?product-promotion=best-sellers" target="">
+																<a className="menu-link  flex items-center px-6 h-15 font-semibold hover:text-blue-2 ease-200" href="" target="">
 						
 																Promotions
 					</a>
@@ -889,7 +890,7 @@ return (
 			</svg>
 			</button>
 	</div>
-<ul className="menu flex-col text-light">
+<ul className="menu flex-col text-light" style={{marginLeft:"40px"}}>
 			<li className="menu-item">
 					<div className="inline-menu"  >
 						<button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
@@ -957,34 +958,8 @@ return (
 								
 
 								</li>
-								<li className="menu-item">
-			<div className="inline-menu"  >
-						<button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
-						Électrique
-							<figure className="ml-auto inline h-6 w-6 relative">
-								<svg  className="transition transform ease-in-out duration-300 absolute inset-0 w-full h-full stroke-current text-blue-2">
-									<use href="#icon-government"/></svg>
-							</figure>
-						</button>
-						
-					</div>
-								
-
-								</li>
-								<li className="menu-item">
-			<div className="inline-menu"  >
-						<button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
-						DoD / Government Services
-							<figure className="ml-auto inline h-6 w-6 relative">
-								<svg  className="transition transform ease-in-out duration-300 absolute inset-0 w-full h-full stroke-current text-blue-2">
-									<use href="#icon-prototyping"/></svg>
-							</figure>
-						</button>
-						
-					</div>
-								
-
-								</li>
+							
+							
 								<li className="menu-item">
 			<div className="inline-menu"  >
 						<button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
@@ -1019,39 +994,39 @@ return (
 	</button>
 </div>
 
-<ul className="menu flex-col text-light">
+<ul className="menu flex-col text-light" style={{marginLeft:"40px"}}>
 			<li className="menu-item">
 					<div className="inline-menu" x-data="{open: false}" >
 				
 					<nav className="border-b-2 mx-5 border-clear transition-max-h duration-500 ease-in-out" >
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=3d-printing" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									3D Printing
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=3d-scanners" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									3D Scanners
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=fdm" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									FDM
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=programmable-photopolymerization" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									P3
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=electronic-printing" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									PCB
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=polyjet" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									PolyJet
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=post-processing" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									Post-Processing
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=saf" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									SAF
 								</a>
-															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="/product-category/hardware/?product-technology=stereolithography" target="">
+															<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2" href="" target="">
 									Stereolithography
 								</a>
-														<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2 group" href="/hardware/technology" target="">
+														<a className="menu-link  flex items-center px-6 h-15 hover:text-blue-2 group" href="" target="">
 								Voir tout
 								<svg className="ml-2 h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25">
 									<path d="M2 12.5h20" stroke="#00B6FF" strokeWidth="2" strokeMiterlimit="10"/>
@@ -1083,7 +1058,7 @@ return (
 	</svg>
 	</button>
 </div>
-<ul className="menu flex-col text-light">
+<ul className="menu flex-col text-light" style={{marginLeft:"40px"}}>
 		 <li className="menu-item">
 				 <div className="inline-menu"  >
 					 <button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
@@ -1190,7 +1165,7 @@ return (
 	</button>
 </div>
 
-<ul className="menu flex-col text-light">
+<ul className="menu flex-col text-light" style={{marginLeft:"40px"}}>
 			<li className="menu-item">
 					<div className="inline-menu" x-data="{open: false}" >
 						<button className="menu-link inline-flex items-center px-6 h-15 w-full justify-between font-semibold hover:text-blue-2" >
@@ -1218,9 +1193,9 @@ return (
 
 
 <div className="px-4 py-8 bg-grey-5 sticky bottom-0 z-10">
-			<a className="button-primary text-button16 tracking-08 " style={{width:'80%',margin:"auto"}} href="/contactUs" target="_self">Contact Us</a>
+			<a className="button-primary text-button16 tracking-08 " style={{width:'80%',margin:"auto"}} href="/contactUs" target="_self"> Contactez-nous</a>
 			<br/><br/>
-			<a className="button-outline  text-button16 tracking-08 "style={{width:'80%',margin:"auto"}}  href="/soutien" target="_self">Get Support</a>
+			<a className="button-outline  text-button16 tracking-08 "style={{width:'80%',margin:"auto"}}  href="/soutien" target="_self">Soutien </a>
 		</div>
 
 </nav>

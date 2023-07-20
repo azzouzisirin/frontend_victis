@@ -30,7 +30,7 @@ import PolitiqueConfidentialite from './pages/politiqueConfidentialite'
 
 import ListFormation from './pages/ListFormation';
 import Formation from './pages/Formation';
-import PromoVictis from './pages/PromoVictis'
+import Carrieur from './pages/Carrieur'
 import Services from './pages/Services'
 import CookieConsent from './components/CookieConsent';
 import TableCalendrie from './pages/Calendrie/TableCalendrie';
@@ -65,7 +65,7 @@ export default function App() {
           <Route path="/ListFormation/:nomCateg" element={<ListFormation />}  />
           <Route path="/descritionFormation/:nomForma/:pays" element={<DescriptDetailFormation />}  />
 
-          <Route path="/PromoVictis" element={<PromoVictis />} />
+          <Route path="/carrier" element={<Carrieur />} />
           <Route path="/service" element={<Services />} />
           <Route path="/formation" element={<Formation />} />
           <Route path="/financer" element={<Financer />} />
