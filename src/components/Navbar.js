@@ -1,6 +1,9 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import {BASE_URL} from "../helper"
+import logo_VICTIS from '../logo_victis.png';
+
+
 import { FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
@@ -81,27 +84,27 @@ export default function Navbar() {
 		if(dataFormation){
          if(dataFormation[0]){
 			setnomFormation_1(dataFormation[0].nom)
-			setidFormation_1(dataFormation[0]._id)
+			setidFormation_1(dataFormation[0].categorie)
 
 		 }
 		 if(dataFormation[1]){
 			setnomFormation_2(dataFormation[1].nom)
-			setidFormation_2(dataFormation[1]._id)
+			setidFormation_2(dataFormation[1].categorie)
 
 		 }
 		 if(dataFormation[2]){
 			setnomFormation_3(dataFormation[2].nom)
-			setidFormation_3(dataFormation[2]._id)
+			setidFormation_3(dataFormation[2].categorie)
 
 		 }
 		 if(dataFormation[3]){
 			setnomFormation_4(dataFormation[3].nom)
-			setidFormation_4(dataFormation[3]._id)
+			setidFormation_4(dataFormation[3].categorie)
 
 		 }
 		 if(dataFormation[4]){
 			setnomFormation_5(dataFormation[4].nom)
-			setidFormation_5(dataFormation[4]._id)
+			setidFormation_5(dataFormation[4].categorie)
 
 		 }
 		}
@@ -141,10 +144,10 @@ return (
 		<div className="flex-1 px-16 py-8">
 			<h3 className="text-h3Sm font-normal mt-2p h-8 ease-200 opacity-0"> Press ENTER to see all results for "<span className="font-semibold"></span>" </h3><div className="flex pt-8"><div className="w-3/5 pr-12 -mt-15">
 		<div><h5 className="pt-15 border-b-1p border-grey-2 w-full uppercase text-grey-3 text-o18 tracking-09 pb-2"> RECHERCHES RÉCENTES </h5><div>
-		{SearchFormation[0]?	<a href={"/DescriptFormation/"+SearchFormation[0]._id} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[0].nom}</a>:null}
-		{SearchFormation[1]?	<a href={"/DescriptFormation/"+SearchFormation[0]._id} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[1].nom}</a>:null}
-		{SearchFormation[2]?	<a href={"/DescriptFormation/"+SearchFormation[0]._id} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[2].nom}</a>:null}
-		{SearchFormation[3]?	<a href={"/DescriptFormation/"+SearchFormation[0]._id} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[3].nom}</a>:null}
+		{SearchFormation[0]?	<a href={"/DescriptFormation/"+SearchFormation[0].categorie+"/"+SearchFormation[0].nom} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[0].nom}</a>:null}
+		{SearchFormation[1]?	<a href={"/DescriptFormation/"+SearchFormation[0].categorie+"/"+SearchFormation[0].nom} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[1].nom}</a>:null}
+		{SearchFormation[2]?	<a href={"/DescriptFormation/"+SearchFormation[0].categorie+"/"+SearchFormation[0].nom} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[2].nom}</a>:null}
+		{SearchFormation[3]?	<a href={"/DescriptFormation/"+SearchFormation[0].categorie+"/"+SearchFormation[0].nom} target="_self" className="font-semibold block text-link18 py-10p first:mt-2 list-active-page hover:text-blue ease-400">{SearchFormation[3].nom}</a>:null}
 
 		
 			</div>
@@ -198,7 +201,7 @@ return (
 
 	<div className="menu-bar hidden lg:flex items-center justify-between h-16 pl-8 pr-6 relative bg-dark"> 
 		<a href="/" target="_self" className="block h-8 my-auto">
-			<img className=" hidden lg:block" width="95px" height="30px" style={{marginTop:"-40px"}} src="../../../../img/logo_VICTIS.png" alt="logo"/>
+			<img className=" hidden lg:block" width="95px" height="30px" style={{marginTop:"-40px"}} src={logo_VICTIS} alt="logo"/>
 			
 		</a>
 		<nav className="header-menu list-none h-full"  >
@@ -296,15 +299,15 @@ return (
 	<nav className="mega-menu-subnav "style={{width:"700px"}}>
 		<p className="text-o18 text-grey-3 tracking-09 uppercase font-semibold">Les Formations</p>
 		<ul>
-							<a href={"/DescriptFormation/"+idFormation_1} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
+							<a href={"/DescriptFormation/"+idFormation_1+"/"+nomFormation_1} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
 							Formations {nomFormation_1}</a>
-							<a href={"/DescriptFormation/"+idFormation_2} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
+							<a href={"/DescriptFormation/"+idFormation_2+"/"+nomFormation_2} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
 							Formations {nomFormation_2}</a>
-							<a href={"/DescriptFormation/"+idFormation_3} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
+							<a href={"/DescriptFormation/"+idFormation_3+"/"+nomFormation_3} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
 							Formations {nomFormation_3}</a>
-							<a href={"/DescriptFormation/"+idFormation_4} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
+							<a href={"/DescriptFormation/"+idFormation_4+"/"+nomFormation_4} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
 							Formations {nomFormation_4}</a>
-							<a href={"/DescriptFormation/"+idFormation_5} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
+							<a href={"/DescriptFormation/"+idFormation_5+"/"+nomFormation_5} className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 ">
 							Formations {nomFormation_5}</a>
 							
 					</ul>
@@ -387,9 +390,8 @@ return (
 						</svg>
 						Conception</a>
 							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
-											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
-											<symbol id="icon-analysis" viewBox="0 0 24 24"> <path strokeLinecap="square" strokeMiterlimit="10" strokeWidth="2" d="M5 1v8M9 5H1M8 16l-6 6M8 22l-6-6M23 5h-8M23 17h-8M23 21h-8"></path> </symbol>
-
+							<svg class="h-10 w-6 mr-3 stroke-current fill-none">
+							<use href="#icon-documentation"></use>
 						</svg>
 						Documentation</a>
 							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
@@ -397,11 +399,7 @@ return (
 											Tout						<use href="#icon-info"></use>
 						</svg>
 						Électrique</a>
-							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
-											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
-							<use href="#icon-government"></use>
-						</svg>
-										DoD / Government Services</a>
+						
 							<a href="" className="menu-item flex items-center text-link18 text-light tracking-09 mt-3 ease-200 font-semibold">
 											<svg className="h-10 w-6 mr-3 stroke-current fill-none">
 							<use href="#icon-prototyping"></use>
@@ -700,7 +698,7 @@ return (
 	<nav className="navmenu" style={{width:"90%"}} >
 	{menuAffiche==0?	<div >
 		<div className=" flex h-20 bg-grey-5 sticky top-0 z-10 "  >
-		<img  width="80px" height="40px" style={{marginTop:"5px"}} src="../../../../img/logo_VICTIS.png" alt="logo"/>
+		<img  width="80px" height="40px" style={{marginTop:"5px"}} src={logo_VICTIS} alt="logo"/>
 
 								<button className="mobile-menu-close h-full self-start flex ml-auto" onClick={() =>setMenuOpen(false)}  >
 									<svg className="h-full w-16 text-blue-2 hover:bg-grey-4 mb-auto justify-center items-center flex p-4">

@@ -152,12 +152,11 @@ export default function Home() {
 
 return ( 
 
-<div className="body home page-template-default page page-id-83 wp-embed-responsive theme-pyxl-scry woocommerce-no-js" data-template="base.twig">
+<div>
 	 
 		<NavBar/>
 
 		
-<h1 className="screen-reader-text" href=""> </h1>
 		
 		<main role="main">
 				<div className="content-wrapper">
@@ -174,10 +173,10 @@ return (
                 <video className="hidden md:block object-cover h-full w-full" src="./img/VICTIS-Hero_video_compressed.mp4" autoPlay muted loop></video>		
 					</div>
 		<div className="hero__content -md:pt-56 relative max-w-grid mx-auto flex flex-col justify-end md:justify-center z-20 h-full ml-0 md:ml-auto text-light">
-			<div className="hero__content-inner lg:w-2/3 px-4 pb-4 xl:pl-0 md:pr-20">
+			<div className="hero__content-inner lg:w-2/3 px-2 pb-4 xl:pl-0 md:pr-30">
 													<p className="mb-3 md:mb-5 text-o14 md:text-o18 uppercase font-semibold text-grey-2">BIENVENUE CHEZ VICTIS</p>
 				
-													<h1 className="md:-ml-2p hero__heading font-semibold text-h1Sm md:text-hero">Des solutions conçues par des experts pour vous</h1>
+													<h1 className="md:-ml-1p hero__heading font-semibold text-h1Sm md:text-hero" >Des solutions conçues par des experts spécialement pour vous</h1>
 					<p className="hero__description text-p18 md:text-sub text-left mt-5">Innovation leader de l'industrie dirigée par des ingénieurs experts. Nous sommes VICTIS.</p>
 				
 

@@ -7,13 +7,10 @@ export default function Contact() {
     return ( 
         <>
         <NavBar/>
-            <div className="page-template-default page page-id-244 wp-embed-responsive theme-pyxl-scry woocommerce-js" data-template="base.twig">
+            <div >
 
             
 
-					<h1 className="screen-reader-text" href="#content">
-				
-			</h1>
 		
 		<main role="main">
 				<div className="content-wrapper">
